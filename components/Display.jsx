@@ -1,18 +1,19 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React, { Component } from 'react'
+import OutputBox from './OutputBox'
+import HistoryBox from './HistoryBox'
 
-export class Display extends Component {
-    render() {
-        return (
-            <View style={{
-                height: '100%',
-            }}>
-                <View style={styles.displayBox}>
-
-                </View>
-            </View>
-        )
-    }
+export default function Display() {
+    return (
+        <View style={{
+            flex: 1,
+            backgroundColor: 'black'
+        }}>
+            {/* <Text>hello</Text> */}
+            <HistoryBox></HistoryBox>
+            <OutputBox></OutputBox>
+        </View>
+    )
 }
 const styles = StyleSheet.create(
     {
@@ -20,11 +21,7 @@ const styles = StyleSheet.create(
             color: 'red'
         },
         displayBox: {
-            backgroundColor: 'powderblue',
-            height: '50%',
-            width: '100%',
-            borderColor: 'red'
+            backgroundColor: 'black',
         }
     }
 )
-export default Display

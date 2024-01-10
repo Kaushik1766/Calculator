@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native'
 import { Appearance } from 'react-native'
 import Display from './components/Display'
+import InputPad from './components/InputPad'
 
 const App = () => {
     const [value, upateValue] = useState('')
@@ -10,9 +11,12 @@ const App = () => {
         console.log(e.target.value);
     }
     return (
-        <SafeAreaView>
+        <View style={{
+            flex: 1
+        }}>
             <Display />
-        </SafeAreaView>)
+            <InputPad />
+        </View>)
 }
 
 export default App
