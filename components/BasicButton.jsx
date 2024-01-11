@@ -4,8 +4,8 @@ import React from 'react'
 export default function BasicButton(props) {
     if (props.name == '=') {
         return (
-            <View style={{ borderRadius: 60, overflow: 'hidden', flex: 1 }}>
-                <TouchableNativeFeedback style={styles.roundEdges}>
+            <View style={styles.roundEdges}>
+                <TouchableNativeFeedback>
                     <View style={styles.EqualButton}>
                         <Text style={styles.ButtonText} >{props.name}</Text>
                     </View>
@@ -15,8 +15,8 @@ export default function BasicButton(props) {
         )
     }
     return (
-        <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
-            <TouchableNativeFeedback style={styles.roundEdges}>
+        <View style={styles.roundEdges}>
+            <TouchableNativeFeedback >
                 <View style={styles.Button}>
                     <Text style={styles.ButtonText} >{props.name}</Text>
                 </View>
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
 
     },
     roundEdges: {
-        flex: 1,
-        // borderRadius: 30,
+        borderRadius: 30,
         overflow: 'hidden',
-        // backgroundColor: 'white'
+        flex: 1,
+        margin: '1%'
     }
 })
