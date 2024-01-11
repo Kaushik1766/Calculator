@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Button from './Button'
+import Button from './BasicButton'
+import BasicButton from './BasicButton'
 
 export default function ButtonRow({ A, B, C, D }) {
     return (
         <View style={styles.Row}>
-            <Button name={A} />
-            <Button name={B} />
-            <Button name={C} />
-            <Button name={D} />
+            <BasicButton name={A} />
+            <BasicButton name={B} />
+            <BasicButton name={C} />
+            <BasicButton name={D} />
         </View>
     )
 }
