@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { inputValue, inputV } from './features/inputSlice'
 
 export default function BasicButton(props) {
     if (props.name == '=') {
@@ -14,9 +16,13 @@ export default function BasicButton(props) {
 
         )
     }
+    const dispatch = useDispatch()
+    function handlePress() {
+        // dispatch(inputV())
+    }
     return (
         <View style={styles.roundEdges}>
-            <TouchableNativeFeedback >
+            <TouchableNativeFeedback onPress={handlePress} >
                 <View style={styles.Button}>
                     <Text style={styles.ButtonText} >{props.name}</Text>
                 </View>

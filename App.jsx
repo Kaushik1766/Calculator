@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native'
 import { Appearance } from 'react-native'
 import Display from './components/Display'
 import InputPad from './components/InputPad'
+import { Provider } from 'react-redux'
+import store from './components/store'
 
 const App = () => {
     const [value, upateValue] = useState('')
@@ -11,12 +13,15 @@ const App = () => {
         console.log(e.target.value);
     }
     return (
-        <View style={{
-            flex: 1
-        }}>
-            <Display />
-            <InputPad />
-        </View>)
+        <Provider store={store}>
+            <View style={{
+                flex: 1
+            }}>
+                <Display />
+                <InputPad />
+            </View>
+        </Provider>
+    )
 }
 
 export default App

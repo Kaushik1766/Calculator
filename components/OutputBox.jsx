@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
+import { UseSelector, useDispatch, useSelector } from 'react-redux'
 
 export default function OutputBox() {
     return (
@@ -8,7 +9,7 @@ export default function OutputBox() {
             // backgroundColor: 'red',
             padding: '2%'
         }}>
-            <Text style={styles.outputBox} >OutputBox</Text>
+            <Text style={styles.outputBox} >{useSelector(state => state.input.value)}</Text>
         </View>
     )
 }
