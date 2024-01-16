@@ -9,7 +9,7 @@ export default function OutputBox() {
             // backgroundColor: 'red',
             padding: '2%'
         }}>
-            <Text style={styles.outputBox} >{useSelector(state => state.input.value)}</Text>
+            <Text style={styles.outputBox} >{(useSelector(state => state.inputQueue.value)).split(',')}</Text>
         </View>
     )
 }
