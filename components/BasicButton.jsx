@@ -1,17 +1,16 @@
 import { StyleSheet, Text, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { inputValue, resetValue } from './features/inputSlice'
+import { addHistory } from './features/historyArray'
 import { add, backspace, clear, push } from './features/inputQueue'
 
 export default function BasicButton(props) {
     const dispatch = useDispatch()
-    const expression = useSelector(state => state.input.value)
+    // const expression = useSelector(state => state.input.value)
     const inpQ = useSelector(state => state.inputQueue.value)
 
     function handlePress() {
         if (props.name == 'AC') { //for AC
-            dispatch(resetValue())
             dispatch(clear())
         }
         else if (props.name == '<-') { //for backspace <-
@@ -21,6 +20,8 @@ export default function BasicButton(props) {
             let output = 0
             let inputs = inpQ.split(',')
             let op1 = parseFloat(inputs[0])
+            let expression = inputs.join('') + '\n='
+            // console.log(expression);
             for (let i = 0; i < inputs.length - 2; i += 2) {
                 let operator = inputs[i + 1]
                 let op2 = parseFloat(inputs[i + 2])
@@ -40,13 +41,14 @@ export default function BasicButton(props) {
                     case '%':
                         output = op1 % op2
                         break
-
-
                 }
                 op1 = output
             }
             dispatch(clear())
             dispatch(add(output))
+            expression += output
+            console.log(expression);
+            dispatch(addHistory(expression))
 
         }
         else if (props.name == '#') {

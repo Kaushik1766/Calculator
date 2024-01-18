@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import inputReducer from './features/inputSlice'
+import historyArray from './features/historyArray'
 import inputQueue from "./features/inputQueue";
 export default configureStore({
     reducer: {
-        input: inputReducer,
+        historyArray: historyArray,
         inputQueue: inputQueue,
     },
 })
